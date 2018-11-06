@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CaddieApp</string>
+    <string name="login">Ingreso</string>
+    <string name="login_golfista">Ingresar como Golfista</string>
+    <string name="login_caddie_master">Ingresar como Caddie Master</string>
+    <string name="register">Registrarse</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="celular">Celular:</string>
+    <string name="registrar_caddie">Registrar Caddie</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="categoria">Categoria:</string>
+    <string name="foto_caddie">Foto Caddie</string>
+    <string name="subir_foto">Subir Foto</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="disponible">Disponible</string>
+    <string name="estado">Estado:</string>
+    <string name="informacion_caddie">Información Caddie</string>
+    <string name="nombres">Nombres:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="alias">Alias:</string>
+    <string name="edad">Edad:</string>
+    <string name="editar">Editar</string>
+</resources>

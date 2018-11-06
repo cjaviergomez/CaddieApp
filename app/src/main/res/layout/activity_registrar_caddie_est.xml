@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarCaddieEst">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonToRegister">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:checkedButton="@+id/radioButtonDisponible">
+
+            <RadioButton
+                android:id="@+id/radioButtonDisponible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disponible" />
+
+            <RadioButton
+                android:id="@+id/radioButtonOcupado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ocupado" />
+
+            <RadioButton
+                android:id="@+id/radioButtonPFC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PFC" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
+            android:text="Estado:" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttonToRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:text="REGISTRAR"
+        android:textColor="#FFF" />
+
+</RelativeLayout>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CaddieGolfista">
+
+    <TextView
+        android:id="@+id/textViewtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/informacion_caddie"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/imageViewfotoCaddieGolfista"
+        android:layout_width="200dp"
+        android:layout_height="146dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewtitle"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <TextView
+        android:id="@+id/textViewLayoutNombres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/nombres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewtitle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewNombres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:text="Carlos Javier"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutNombres"
+        app:layout_constraintTop_toBottomOf="@+id/textViewtitle" />
+
+    <TextView
+        android:id="@+id/textViewLayoutApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/apellidos"
+        app:layout_constraintEnd_toEndOf="@+id/textViewLayoutNombres"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLayoutNombres"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Gomez Aguilar"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutApellidos"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombres" />
+
+    <TextView
+        android:id="@+id/textViewLayoutAlias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:text="@string/alias"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="@+id/textViewLayoutApellidos"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLayoutApellidos" />
+
+    <TextView
+        android:id="@+id/textViewAlias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Pez"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutAlias"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidos" />
+
+    <TextView
+        android:id="@+id/textViewLayoutEdad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/edad"
+        app:layout_constraintEnd_toEndOf="@+id/textViewLayoutAlias"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLayoutAlias"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewEdad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text=" 22 Años"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutEdad"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAlias"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewLayoutCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/categoria"
+        app:layout_constraintEnd_toEndOf="@+id/textViewLayoutEdad"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLayoutEdad"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tercera"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutCat"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEdad"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/textViewLayoutEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/estado"
+        app:layout_constraintEnd_toEndOf="@+id/textViewLayoutCat"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLayoutCat"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/disponible"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutEstado"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategoria"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewLayoutCel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/celular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLayoutEstado"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewNoCel"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="XXXXXXXXXX"
+        app:layout_constraintStart_toEndOf="@+id/textViewLayoutCel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEstado"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButtonLlamadaMaster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="6dp"
+        android:background="@null"
+        android:backgroundTintMode="src_atop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toEndOf="@+id/textViewNoCel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEstado"
+        app:srcCompat="@drawable/phone"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonReservarCaddie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="reservar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>
