@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "195069702486",
+    "firebase_url": "https://caddieapp-cb128.firebaseio.com",
+    "project_id": "caddieapp-cb128",
+    "storage_bucket": "caddieapp-cb128.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195069702486:android:ebd4d7cb39ebec8a",
+        "android_client_info": {
+          "package_name": "com.eisi.uis.caddieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195069702486-gm2la0g9olqepdoseoh3aoofca3cfraq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "195069702486-gm2la0g9olqepdoseoh3aoofca3cfraq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNujCxaPBwF9HCQz-7ljp3IIFP5kDbKYw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
