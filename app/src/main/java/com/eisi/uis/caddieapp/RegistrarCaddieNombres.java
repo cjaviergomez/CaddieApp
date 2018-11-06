@@ -41,13 +41,6 @@ public class RegistrarCaddieNombres extends AppCompatActivity {
                     Toast.makeText(RegistrarCaddieNombres.this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show();
                 }else {
 
-                    //Guardar el nombre, apellidos y alias  del caddie en el archivo de SharedPreferences
-                    SharedPreferences.Editor editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit();
-                    editor.putString("name", name );
-                    editor.putString("apellidos", apellidos);
-                    editor.putString("alias", alias);
-                    editor.apply();
-
                     //Se lanza el intent
                     Intent intentFoto = new Intent(RegistrarCaddieNombres.this, RegistrarCaddieFoto.class);
                     intentFoto.putExtra("name", name);
