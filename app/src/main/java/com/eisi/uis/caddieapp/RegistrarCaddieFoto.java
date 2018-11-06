@@ -56,7 +56,7 @@ public class RegistrarCaddieFoto extends AppCompatActivity {
             alias = bundle.getString("alias");
         }
 
-        // Instanciamos los elementos de la UI
+        // Instanciamos los elementos de la UI con sus referencias.
         this.buttonToEdadActivity = findViewById(R.id.buttonToEdadActivity);
         this.buttonSubirFoto = findViewById(R.id.buttonSubirFoto);
         this.imageViewfotoCaddie = findViewById(R.id.imageViewfotoCaddie);
