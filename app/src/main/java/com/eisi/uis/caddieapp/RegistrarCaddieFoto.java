@@ -26,7 +26,6 @@ import com.google.firebase.storage.UploadTask;
 public class RegistrarCaddieFoto extends AppCompatActivity {
 
     // Elementos UI
-    private TextView textViewTitleActivity;
     private Button buttonToEdadActivity;
     private Button buttonSubirFoto;
     private ImageView imageViewfotoCaddie;
@@ -58,7 +57,6 @@ public class RegistrarCaddieFoto extends AppCompatActivity {
         }
 
         // Instanciamos los elementos de la UI con sus referencias
-        this.textViewTitleActivity = findViewById(R.id.textViewFoto);
         this.buttonToEdadActivity = findViewById(R.id.buttonToEdadActivity);
         this.buttonSubirFoto = findViewById(R.id.buttonSubirFoto);
         this.imageViewfotoCaddie = findViewById(R.id.imageViewfotoCaddie);
