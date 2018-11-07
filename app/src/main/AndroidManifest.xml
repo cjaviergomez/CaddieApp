@@ -58,13 +58,8 @@
                 android:value=".LandingCaddieMaster" />
         </activity>
 
-        <activity
-            android:name=".RegistrarCaddieFoto"
-            android:parentActivityName=".RegistrarCaddieNombres">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RegistrarCaddieNombres" />
-        </activity>
+        <activity android:name=".RegistrarCaddieFoto"/>
+
 
         <activity
             android:name=".RegistrarCaddieEdad"

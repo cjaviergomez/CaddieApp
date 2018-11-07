@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrarCaddieFoto">
+    tools:context=".RegistrarCaddieFoto"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+         />
 
     <TextView
         android:id="@+id/textViewFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_above="@+id/imageViewfotoCaddie"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="139dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/foto_caddie"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -29,8 +38,11 @@
         android:id="@+id/imageViewfotoCaddie"
         android:layout_width="match_parent"
         android:layout_height="337dp"
-        android:layout_marginBottom="8dp"
+        android:layout_above="@+id/buttonSubirFoto"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSubirFoto"
         app:layout_constraintTop_toBottomOf="@+id/textViewFoto"
         app:layout_constraintVertical_bias="1.0"
@@ -41,10 +53,13 @@
         android:id="@+id/buttonSubirFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_above="@+id/buttonToEdadActivity"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="141dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="14dp"
         android:text="@string/subir_foto"
         app:layout_constraintBottom_toTopOf="@+id/buttonToEdadActivity"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,4 +81,4 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
