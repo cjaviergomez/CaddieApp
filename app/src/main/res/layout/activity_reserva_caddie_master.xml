@@ -7,13 +7,13 @@
     tools:context=".ReservaCaddieMaster">
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textViewTitle_InfoReserva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
-        android:text="Información Reserva"
+        android:text="@string/textview_infoReserva"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -22,19 +22,19 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textViewlabelnombrecaddie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="66dp"
         android:layout_marginStart="66dp"
         android:layout_marginTop="116dp"
-        android:text="Caddie:"
+        android:text="@string/caddie"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textView_nombrecaddie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -42,27 +42,27 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="116dp"
-        android:text="Carlos Javier Gomez Aguilar"
+        android:text="@string/nombre_caddie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintStart_toEndOf="@+id/textViewlabelnombrecaddie"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textView_labelgolfista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="36dp"
-        android:text="Golfista: "
+        android:text="@string/golfista"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textViewlabelnombrecaddie"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textView_nombreGolfista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -70,11 +70,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="36dp"
-        android:text="Tiger Woods"
+        android:text="@string/tiger_woods"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        app:layout_constraintStart_toEndOf="@+id/textView_labelgolfista"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombrecaddie"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -84,6 +84,7 @@
         android:layout_marginBottom="144dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="@string/imageview_description_eliminar_reserva"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.796"
@@ -97,19 +98,20 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:text="Rechazar"
+        android:text="@string/textview_rechazar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEliminar" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageViewAceptarReserva"
         android:layout_width="93dp"
         android:layout_height="53dp"
         android:layout_marginBottom="144dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="@string/aceptar_reserva"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageViewEliminar"
         app:layout_constraintHorizontal_bias="0.508"
@@ -118,17 +120,17 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/textViewAceptarReserva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:text="Aceptar"
+        android:text="@string/aceptar"
         app:layout_constraintEnd_toStartOf="@+id/textViewEliminar"
         app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAceptarReserva"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

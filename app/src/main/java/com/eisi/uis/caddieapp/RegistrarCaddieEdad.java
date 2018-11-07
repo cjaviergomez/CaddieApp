@@ -28,9 +28,6 @@ public class RegistrarCaddieEdad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_caddie_edad);
 
-        // Activar la flecha para volver al activity principal
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Recogemos el nombre, apellido y alias  del activity anterior
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -77,7 +74,6 @@ public class RegistrarCaddieEdad extends AppCompatActivity {
                 }
             }
         });
-
 
         // Evento click del botón para pasar al siguiente Activity
         btnNext.setOnClickListener(new View.OnClickListener() {

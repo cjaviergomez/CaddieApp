@@ -4,13 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrarCaddieFoto"
-    >
+    tools:context=".RegistrarCaddieFoto" >
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-         />
 
     <TextView
         android:id="@+id/textViewFoto"
@@ -43,6 +38,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="13dp"
+        android:contentDescription="@string/description_imageviewfotocaddiesubir"
         app:layout_constraintBottom_toTopOf="@+id/buttonSubirFoto"
         app:layout_constraintTop_toBottomOf="@+id/textViewFoto"
         app:layout_constraintVertical_bias="1.0"
@@ -75,7 +71,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:text="Siguiente"
+        android:text="@string/siguiente"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"

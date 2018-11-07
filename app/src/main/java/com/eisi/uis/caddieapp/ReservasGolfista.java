@@ -31,6 +31,7 @@ public class ReservasGolfista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservas_golfista);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         this.lv = (ListView) findViewById(R.id.listViewReservas);
         this.reservasIDs = new ArrayList<>();
         this.reservasName = new ArrayList<>();

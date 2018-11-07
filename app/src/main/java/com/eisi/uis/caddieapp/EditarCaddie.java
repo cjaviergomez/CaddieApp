@@ -33,6 +33,7 @@ public class EditarCaddie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_caddie);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         this.editTextNombres   = findViewById(R.id.editTextNombres);
         this.editTextApellidos = findViewById(R.id.editTextApellidos);
         this.editTextAlias     = findViewById(R.id.editTextAlias);

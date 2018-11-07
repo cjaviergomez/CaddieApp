@@ -26,9 +26,6 @@ public class RegistrarCaddieCel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_caddie_cel);
 
-        // Activar la flecha para volver al activity principal
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Recogemos el nombre, apellido, alias y edad  del activity anterior
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -39,6 +36,7 @@ public class RegistrarCaddieCel extends AppCompatActivity {
             age       = bundle.getString("age");
 
         }
+
         // Instanciamos los elementos de la UI con sus referencias
         this.editTextCelular     = findViewById(R.id.editTextCelular);
         this.siguienteActivity   = findViewById(R.id.buttonToFourthActivity);

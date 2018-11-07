@@ -24,19 +24,19 @@
                 android:id="@+id/radioButtonDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Disponible" />
+                android:text="@string/disponible" />
 
             <RadioButton
                 android:id="@+id/radioButtonOcupado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ocupado" />
+                android:text="@string/ocupado" />
 
             <RadioButton
                 android:id="@+id/radioButtonPFC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PFC" />
+                android:text="@string/pfc" />
 
         </RadioGroup>
 
@@ -47,7 +47,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="140dp"
-            android:text="Estado:" />
+            android:text="@string/estado" />
 
 
     </RelativeLayout>
@@ -59,7 +59,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:text="REGISTRAR"
+        android:text="@string/registrar"
         android:textColor="#FFF" />
 
 </RelativeLayout>

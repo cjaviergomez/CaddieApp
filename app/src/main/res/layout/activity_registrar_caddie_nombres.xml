@@ -34,7 +34,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
         android:ems="10"
-        android:hint="Nombres"
+        android:hint="@string/nombreshint"
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,10 +55,10 @@
         android:ems="10"
         android:hint="Apellidos"
         android:inputType="textPersonName"
-        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextNombres" />
+        app:layout_constraintTop_toTopOf="@+id/editTextNombres"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/editTextAlias"
@@ -70,15 +70,12 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:hint="Alias"
+        android:hint="@string/aliashint"
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editTextApellidos" />
-
-    <!-- Las configuraciones de los siguientes dos spinners se encuentran en la clase RegistrarCaddieNombres -->
-    <!-- android:gravity = "end"  Alinea los elementos seleccionados del spinner a la derecha-->
 
     <Button
         android:id="@+id/buttonToFotoActivity"

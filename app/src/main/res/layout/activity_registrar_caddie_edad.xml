@@ -32,18 +32,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="166dp"
             android:fontFamily="monospace"
-            android:text="18"
+            android:text="@string/_18"
             android:textColor="@color/colorAccent"
             android:textSize="32dp" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/textViewEdad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="195dp"
-            android:text="Edad:" />
+            android:text="@string/edad" />
 
 
     </RelativeLayout>
@@ -55,7 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:text="Siguiente"
+        android:text="@string/siguiente"
         android:textColor="#FFF" />
 
 </RelativeLayout>

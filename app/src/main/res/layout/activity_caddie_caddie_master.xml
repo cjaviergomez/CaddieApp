@@ -30,6 +30,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/foto_caddie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
-        android:text="Carlos Javier"
+        android:text="@string/textview_nombrecaddie"
         app:layout_constraintStart_toEndOf="@+id/textViewLayoutNombres"
         app:layout_constraintTop_toBottomOf="@+id/textViewtitle" />
 
@@ -74,7 +75,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Gomez Aguilar"
+        android:text="@string/textview_apellidoscaddie"
         app:layout_constraintStart_toEndOf="@+id/textViewLayoutApellidos"
         app:layout_constraintTop_toBottomOf="@+id/textViewNombres" />
 
@@ -96,7 +97,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Pez"
+        android:text="@string/textview_aliascaddie"
         app:layout_constraintStart_toEndOf="@+id/textViewLayoutAlias"
         app:layout_constraintTop_toBottomOf="@+id/textViewApellidos" />
 
@@ -116,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text=" 22 Años"
+        android:text="@string/textview_edadcaddie"
         app:layout_constraintStart_toEndOf="@+id/textViewLayoutEdad"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlias"
         tools:ignore="MissingConstraints" />
@@ -137,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Tercera"
+        android:text="@string/textview_categoriacaddie"
         app:layout_constraintStart_toEndOf="@+id/textViewLayoutCat"
         app:layout_constraintTop_toBottomOf="@+id/textViewEdad"
         tools:ignore="MissingConstraints" />
@@ -196,6 +197,7 @@
         android:background="@null"
         android:backgroundTintMode="src_atop"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/imagebutton_callmaster"
         app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toEndOf="@+id/textViewNoCel"
         app:layout_constraintTop_toBottomOf="@+id/textViewEstado"
@@ -206,6 +208,7 @@
         android:id="@+id/imageViewEditar"
         android:layout_width="93dp"
         android:layout_height="53dp"
+        android:contentDescription="@string/imageview_editarcaddie"
         app:layout_constraintBottom_toTopOf="@+id/textViewEditar"
         app:layout_constraintEnd_toEndOf="@+id/textViewEditar"
         app:layout_constraintHorizontal_bias="0.392"
@@ -229,6 +232,7 @@
         android:id="@+id/imageViewEliminar"
         android:layout_width="93dp"
         android:layout_height="53dp"
+        android:contentDescription="@string/imageview_eliminarcaddie"
         app:layout_constraintBottom_toTopOf="@+id/textViewEliminar"
         app:layout_constraintEnd_toEndOf="@+id/textViewEliminar"
         app:layout_constraintHorizontal_bias="0.465"

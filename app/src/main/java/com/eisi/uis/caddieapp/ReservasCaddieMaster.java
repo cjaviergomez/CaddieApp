@@ -31,6 +31,7 @@ public class ReservasCaddieMaster extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservas_caddie_master);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         this.lv = (ListView) findViewById(R.id.listViewReservas);
         this.reservasIDs = new ArrayList<>();
         this.reservasName = new ArrayList<>();

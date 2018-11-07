@@ -40,6 +40,7 @@ public class CaddieGolfista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caddie_golfista);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         this.textViewNombres = findViewById(R.id.textViewNombres);
         this.textViewApellidos = findViewById(R.id.textViewApellidos);
         this.textViewAlias = findViewById(R.id.textViewAlias);
@@ -68,7 +69,7 @@ public class CaddieGolfista extends AppCompatActivity {
                 String apellidos = textViewApellidos.getText().toString();
                 String estado = textViewEstado.getText().toString();
 
-                if (estado.equals("Disponible")) {
+                if (estado.equals("DISPONIBLE")) {
                     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
                     _PojoReserva pojoReserva = new _PojoReserva();
                     pojoReserva.setCaddie(caddieID);

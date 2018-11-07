@@ -25,19 +25,19 @@
                 android:id="@+id/radioButtonPrimera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Primera" />
+                android:text="@string/primera" />
 
             <RadioButton
                 android:id="@+id/radioButtonSegunda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Segunda" />
+                android:text="@string/segunda" />
 
             <RadioButton
                 android:id="@+id/radioButtonTercera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tercera" />
+                android:text="@string/textview_categoriacaddie" />
 
         </RadioGroup>
 

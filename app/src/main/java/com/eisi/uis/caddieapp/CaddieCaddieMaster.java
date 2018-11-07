@@ -45,6 +45,7 @@ public class CaddieCaddieMaster extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caddie_caddie_master);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         this.textViewNombres     = findViewById(R.id.textViewNombres);
         this.textViewApellidos   = findViewById(R.id.textViewApellidos);
         this.textViewAlias       = findViewById(R.id.textViewAlias);

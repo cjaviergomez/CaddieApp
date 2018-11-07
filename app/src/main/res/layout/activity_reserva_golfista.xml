@@ -7,13 +7,13 @@
     tools:context=".ReservaGolfista">
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textViewTitle_InfoReserva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
-        android:text="Información Reserva"
+        android:text="@string/textview_infoReserva"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -22,49 +22,49 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textViewlabelnombrecaddie"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginLeft="100dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="80dp"
-        android:text="Caddie: "
+        android:text="@string/caddie"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle_InfoReserva"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textView_nombrecaddie"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
-        android:text="Carlos Javier Gomez Aguilar"
-        app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        android:text="@string/nombre_caddie"
+        app:layout_constraintStart_toEndOf="@+id/textViewlabelnombrecaddie"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle_InfoReserva"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textView_labelgolfista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Estado: "
-        app:layout_constraintEnd_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        android:text="@string/estado"
+        app:layout_constraintEnd_toEndOf="@+id/textViewlabelnombrecaddie"
+        app:layout_constraintTop_toBottomOf="@+id/textViewlabelnombrecaddie"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textView_nombreGolfista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Pendiente"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        android:text="@string/estado_reserva"
+        app:layout_constraintStart_toEndOf="@+id/textView_labelgolfista"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombrecaddie"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -74,6 +74,7 @@
         android:layout_marginBottom="152dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="@string/imagebutton_eliminarReserva"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -87,7 +88,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Eliminar"
+        android:text="@string/eliminar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEliminar" />

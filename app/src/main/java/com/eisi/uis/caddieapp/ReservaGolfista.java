@@ -25,8 +25,9 @@ public class ReservaGolfista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_golfista);
 
-        this.textViewNombreCaddie = findViewById(R.id.textView21);
-        this.textViewEstado = findViewById(R.id.textView25);
+        // Instanciamos los elementos de la UI con sus referencias.
+        this.textViewNombreCaddie = findViewById(R.id.textView_nombrecaddie);
+        this.textViewEstado = findViewById(R.id.textView_nombreGolfista);
         this.eliminarReserva = findViewById(R.id.imageViewEliminar);
 
         eliminarReserva.setOnClickListener(new View.OnClickListener() {

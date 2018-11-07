@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="Introduce your phone number"
+            android:hint="@string/celhint"
             android:inputType="phone" />
 
     </RelativeLayout>

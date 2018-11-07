@@ -40,9 +40,6 @@ public class RegistrarCaddieEst extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_caddie_est);
 
-        // Activar la flecha para volver al activity principal
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Recogemos el nombre, apellido, alias, edad, celular y la categoria del activity anterior
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {

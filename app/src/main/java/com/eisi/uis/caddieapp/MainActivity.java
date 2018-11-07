@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         Button btnIngresarGolfista     = findViewById(R.id.btnIngresarGolfista);
         Button btnIngresarCaddieMaster = findViewById(R.id.btnIngresarCaddieMaster);
         final Button btnUrl                  = findViewById(R.id.buttonURL);
 
 
-
-
+        /** Metodo Onclick del boton Ingresar como Caddie Master */
         btnIngresarCaddieMaster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /** Metodo Onclick del boton Ingresar como Golfista */
         btnIngresarGolfista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /** Metodo Onclick del intent implicito para ir a la página web del club */
         btnUrl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

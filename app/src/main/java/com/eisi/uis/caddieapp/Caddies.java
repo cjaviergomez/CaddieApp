@@ -39,6 +39,7 @@ public class Caddies extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caddies);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         this.lv = (ListView) findViewById(R.id.listViewCaddies);
         this.caddiesIDs = new ArrayList<>();
         this.caddiesNames = new ArrayList<>();

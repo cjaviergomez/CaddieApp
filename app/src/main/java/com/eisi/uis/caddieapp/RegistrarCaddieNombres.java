@@ -21,9 +21,6 @@ public class RegistrarCaddieNombres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_caddie_nombres);
 
-        // Activar flecha ir atrás
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Instanciamos los elementos de la UI con sus referencias.
         this.editTextNombres   = findViewById(R.id.editTextNombres);
         this.editTextApellidos = findViewById(R.id.editTextApellidos);

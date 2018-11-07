@@ -10,6 +10,7 @@
         android:id="@+id/imgPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/imagen_golfista"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -29,7 +30,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
-        android:text="TextView"
+        android:text="@string/nombre_golfista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
@@ -43,7 +44,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="65dp"
-        android:text="No. Carné:"
+        android:text="@string/no_carn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNombreGolfista" />
@@ -57,7 +58,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:text="Edad:"
+        android:text="@string/edad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCarne" />
@@ -71,7 +72,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/textviewCarne"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblCarne" />
@@ -85,7 +86,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:text="@string/textviewEdad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblEdad" />
@@ -95,7 +96,7 @@
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Reservar Caddie"
+        android:text="@string/reservar_caddie"
         app:layout_constraintBottom_toTopOf="@+id/bttVerReservas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -105,7 +106,7 @@
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="Ver Reservas Vigentes"
+        android:text="@string/ver_reservas_vigentes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

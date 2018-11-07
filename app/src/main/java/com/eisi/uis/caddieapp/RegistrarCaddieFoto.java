@@ -43,21 +43,10 @@ public class RegistrarCaddieFoto extends AppCompatActivity {
     private String apellidos = "";
     private String alias = "";
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_caddie_foto);
-
-        //Instaciamos el toolbar a utilizar.
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_name));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         // Recogemos el nombre, apellido y alias  del activity anterior
         Bundle bundle = getIntent().getExtras();
@@ -101,7 +90,6 @@ public class RegistrarCaddieFoto extends AppCompatActivity {
                     intentEdad.putExtra("apellidos", apellidos);
                     intentEdad.putExtra("alias", alias);
                     intentEdad.putExtra("foto", restoredURL);
-                    Toast.makeText(RegistrarCaddieFoto.this, "URL: " + restoredURL + "Nombre:" + name, Toast.LENGTH_LONG).show();
                     startActivity(intentEdad);
                 }
             }
@@ -157,9 +145,4 @@ public class RegistrarCaddieFoto extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 }

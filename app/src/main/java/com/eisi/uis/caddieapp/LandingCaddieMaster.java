@@ -16,12 +16,10 @@ public class LandingCaddieMaster extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_caddie_master);
 
-        Button verReservas = findViewById(R.id.button3);
-        Button verCaddies  = findViewById(R.id.button4);
-        Button registrarCaddie = findViewById(R.id.button5);
-
-        // Activar flecha ir atrás
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Instanciamos los elementos de la UI con sus referencias.
+        Button verReservas = findViewById(R.id.buttonVerReservas);
+        Button verCaddies  = findViewById(R.id.buttonVerCaddies);
+        Button registrarCaddie = findViewById(R.id.buttonRegistrarCaddie);
 
         /**
          * Onclick del boton Ver Reservas

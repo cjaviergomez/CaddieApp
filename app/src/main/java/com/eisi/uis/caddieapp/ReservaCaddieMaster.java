@@ -30,10 +30,12 @@ public class ReservaCaddieMaster extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_caddie_master);
 
-        this.textViewNombreCaddie = findViewById(R.id.textView21);
-        this.textViewNombreGolfista = findViewById(R.id.textView25);
+        // Instanciamos los elementos de la UI con sus referencias.
+        this.textViewNombreCaddie = findViewById(R.id.textView_nombrecaddie);
+        this.textViewNombreGolfista = findViewById(R.id.textView_nombreGolfista);
+        this.aceptarReserva = findViewById(R.id.imageViewAceptarReserva);
+        this.rechazarReserva = findViewById(R.id.imageViewEliminar);
 
-        this.aceptarReserva = findViewById(R.id.imageView5);
         aceptarReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +72,7 @@ public class ReservaCaddieMaster extends AppCompatActivity {
                 });
             }
         });
-        this.rechazarReserva = findViewById(R.id.imageViewEliminar);
+
         rechazarReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,8 +94,6 @@ public class ReservaCaddieMaster extends AppCompatActivity {
 
         if (bundle != null) {
             this.reservaID = bundle.getString("reservaID");
-
-            //Toast.makeText(this, "Reserva ID (CaddieMaster): " + reservaID, Toast.LENGTH_SHORT).show();
 
             DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
             DatabaseReference dbCaddies = dbRef.child("reservas/" + this.reservaID);

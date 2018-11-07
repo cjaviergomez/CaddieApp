@@ -7,7 +7,7 @@
     tools:context=".LandingCaddieMaster">
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Bienvenido Caddie Master"
+        android:text="@string/bienvenido_caddie_master"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,51 +23,52 @@
         app:layout_constraintVertical_bias="0.052" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewCaddieMaster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
+        android:contentDescription="@string/imageview_fotomaster"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
         app:srcCompat="@drawable/goal" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonVerReservas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Ver Reservas"
+        android:text="@string/ver_reservas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCaddieMaster" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonVerCaddies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Ver Caddies"
+        android:text="@string/ver_caddies"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonVerReservas" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonRegistrarCaddie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Registrar Caddie"
+        android:text="@string/registrar_caddie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonVerCaddies" />
 
 </android.support.constraint.ConstraintLayout>

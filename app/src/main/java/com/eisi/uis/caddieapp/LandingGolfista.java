@@ -17,14 +17,12 @@ public class LandingGolfista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_golfista);
 
+        // Instanciamos los elementos de la UI con sus referencias.
         TextView txtNombreGolfista = findViewById(R.id.txtNombreGolfista);
         TextView txtCarne          = findViewById(R.id.txtCarne);
         TextView txtEdad           = findViewById(R.id.txtEdad);
         Button reservarCaddie      = findViewById(R.id.bttReservar);
         Button verReservas         = findViewById(R.id.bttVerReservas);
-
-        // Activar flecha ir atrás
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         txtNombreGolfista.setText("Tiger Woods");
         txtCarne.setText("2120063");
@@ -41,6 +39,7 @@ public class LandingGolfista extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         /**
          * Onclick del boton Ver reservas Vigentes
          */
