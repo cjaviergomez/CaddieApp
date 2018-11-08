@@ -35,6 +35,7 @@ public class RegistrarCaddieFoto extends AppCompatActivity {
 
     //Referencia al Storage de Firebase
     private StorageReference rStorage;
+
     private ProgressDialog progressDialog;
     private static final int GALLERY_INTENT = 1;
 

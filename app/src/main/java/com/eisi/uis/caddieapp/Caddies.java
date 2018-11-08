@@ -176,8 +176,8 @@ public class Caddies extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.delete_item:
-                // Borramos item clickeado
+            case R.id.delete_caddie:
+                // Borramos caddie clickeado
                 this.caddiesNames_List.remove(info.position);
                 //Borramos de la DB
                 String caddieID = Caddies.this.caddiesIDs.get(info.position);
@@ -210,6 +210,21 @@ public class Caddies extends AppCompatActivity {
                 intent.putExtra("caddieID", IDcaddie);
                 startActivity(intent);
                 return true;
+
+            case R.id.ver_caddie:
+                String selectionID = Caddies.this.caddiesIDs.get(info.position);
+                Intent intentvercaddie = new Intent(); // Me toca crear el new Intent(), si no me da error la línea de putExtra
+
+                if (Caddies.this.fromView.equals("CaddieMaster")) {
+                    intentvercaddie = new Intent(Caddies.this, CaddieCaddieMaster.class);
+                } else if (Caddies.this.fromView.equals("Golfista")) {
+                    intentvercaddie = new Intent(Caddies.this, CaddieGolfista.class);
+                }
+
+                intentvercaddie.putExtra("caddieID", selectionID);
+                startActivity(intentvercaddie);
+                return true;
+
             case R.id.reservar_caddie:
 
                 String ID = Caddies.this.caddiesIDs.get(info.position);
