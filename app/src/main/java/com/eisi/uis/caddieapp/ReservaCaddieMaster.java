@@ -36,6 +36,36 @@ public class ReservaCaddieMaster extends AppCompatActivity {
         this.aceptarReserva = findViewById(R.id.imageViewAceptarReserva);
         this.rechazarReserva = findViewById(R.id.imageViewEliminar);
 
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+
+        // Tomar los datos del Intent.
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+            this.reservaID = bundle.getString("reservaID");
+
+            DatabaseReference dbCaddies = dbRef.child("reservas/" + this.reservaID);
+
+            dbCaddies.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    _PojoReserva reserva = dataSnapshot.getValue(_PojoReserva.class);
+
+                    caddieID = reserva.caddie;
+
+                    textViewNombreCaddie.setText(reserva.infocaddie);
+                    textViewNombreGolfista.setText(reserva.golfista);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(ReservaCaddieMaster.this, "Error DB", Toast.LENGTH_LONG).show();
+                }
+            });
+        } else {
+            Toast.makeText(this, "It's empty.", Toast.LENGTH_SHORT).show();
+        }
+
         aceptarReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +78,7 @@ public class ReservaCaddieMaster extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         _PojoCaddie caddie = dataSnapshot.getValue(_PojoCaddie.class);
 
-                        if (caddie.estado.equals("Disponible")) {
+                        if (caddie.estado.equals("DISPONIBLE")) {
                             Map<String, Object> reservaMap = new HashMap<>();
                             reservaMap.put("estado", "Aceptada");
 
@@ -77,7 +107,7 @@ public class ReservaCaddieMaster extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-                DatabaseReference reservaRef = dbRef.child("reservas/" + reservaID);
+                final DatabaseReference reservaRef = dbRef.child("reservas/" + reservaID);
 
                 Map<String, Object> reservaMap = new HashMap<>();
                 reservaMap.put("estado", "Rechazada");
@@ -89,33 +119,5 @@ public class ReservaCaddieMaster extends AppCompatActivity {
             }
         });
 
-        // Tomar los datos del Intent.
-        Bundle bundle = getIntent().getExtras();
-
-        if (bundle != null) {
-            this.reservaID = bundle.getString("reservaID");
-
-            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-            DatabaseReference dbCaddies = dbRef.child("reservas/" + this.reservaID);
-
-            dbCaddies.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    _PojoReserva reserva = dataSnapshot.getValue(_PojoReserva.class);
-
-                    caddieID = reserva.caddie;
-
-                    textViewNombreCaddie.setText(reserva.infocaddie);
-                    textViewNombreGolfista.setText(reserva.golfista);
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(ReservaCaddieMaster.this, "Error DB", Toast.LENGTH_LONG).show();
-                }
-            });
-        } else {
-            Toast.makeText(this, "It's empty.", Toast.LENGTH_SHORT).show();
-        }
     }
 }
