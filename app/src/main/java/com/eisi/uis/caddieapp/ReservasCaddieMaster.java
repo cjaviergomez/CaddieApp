@@ -140,57 +140,57 @@ public class ReservasCaddieMaster extends AppCompatActivity {
         //Obtenemos el ID de la reserva seleccionada.
         reservaID = this.reservasIDs.get(info.position);
 
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference reservaRef = dbRef.child("reservas/" + this.reservaID);
 
-        reservaRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                _PojoReserva reserva = dataSnapshot.getValue(_PojoReserva.class);
-                //Obtenemos el ID del caddie de la reserva seleccionada.
-                caddieID = reserva.caddie;
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(ReservasCaddieMaster.this, "Error DB", Toast.LENGTH_LONG).show();
-            }
-        });
-
         switch (item.getItemId()) {
+
             case R.id.aceptar_reserva:
-
-                DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference();
-                final DatabaseReference reservaReference = dbReference.child("reservas/" + reservaID);
-                final DatabaseReference caddieReference = dbReference.child("caddies/" + caddieID);
-
-                caddieReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                //Obtener el ID del caddie
+                reservaRef.addValueEventListener(new ValueEventListener()  {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        _PojoCaddie caddie = dataSnapshot.getValue(_PojoCaddie.class);
+                        _PojoReserva reserva = dataSnapshot.getValue(_PojoReserva.class);
 
-                        if (caddie.estado.equals("DISPONIBLE")) {
-                            Map<String, Object> reservaMap = new HashMap<>();
-                            reservaMap.put("estado", "Aceptada");
+                        caddieID = reserva.caddie;
 
-                            Map<String, Object> caddieMap = new HashMap<>();
-                            caddieMap.put("estado", "Ocupado");
+                        final DatabaseReference caddieRef = dbRef.child("caddies/" + caddieID);
+                        //Consultar el estado del caddie.
+                        caddieRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                _PojoCaddie caddie = dataSnapshot.getValue(_PojoCaddie.class);
 
-                            reservaReference.updateChildren(reservaMap);
-                            caddieReference.updateChildren(caddieMap);
+                                if (caddie.estado.equals("Disponible")) {
+                                    Map<String, Object> reservaMap = new HashMap<>();
+                                    reservaMap.put("estado", "Aceptada");
 
-                            Toast.makeText(ReservasCaddieMaster.this, "Reserva Aceptada", Toast.LENGTH_LONG).show();
-                            finish();
-                        } else {
-                            Toast.makeText(ReservasCaddieMaster.this, "Caddie no disponible", Toast.LENGTH_SHORT).show();
-                        }
+                                    Map<String, Object> caddieMap = new HashMap<>();
+                                    caddieMap.put("estado", "Ocupado");
+
+                                    reservaRef.updateChildren(reservaMap);
+                                    caddieRef.updateChildren(caddieMap);
+
+                                    Toast.makeText(ReservasCaddieMaster.this, "Reserva Aceptada", Toast.LENGTH_LONG).show();
+                                    finish();
+                                } else {
+                                    Toast.makeText(ReservasCaddieMaster.this, "Caddie no disponible", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Toast.makeText(ReservasCaddieMaster.this, "Error DB", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(ReservasCaddieMaster.this, "Error DB", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ReservasCaddieMaster.this, "Error DB", Toast.LENGTH_LONG).show();
                     }
                 });
+
 
                 return true;
             case R.id.rechazar_reserva:

@@ -78,7 +78,7 @@ public class ReservaCaddieMaster extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         _PojoCaddie caddie = dataSnapshot.getValue(_PojoCaddie.class);
 
-                        if (caddie.estado.equals("DISPONIBLE")) {
+                        if (caddie.estado.equals("Disponible")) {
                             Map<String, Object> reservaMap = new HashMap<>();
                             reservaMap.put("estado", "Aceptada");
 

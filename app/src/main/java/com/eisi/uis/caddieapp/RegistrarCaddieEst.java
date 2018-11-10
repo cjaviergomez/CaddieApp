@@ -31,8 +31,8 @@ public class RegistrarCaddieEst extends AppCompatActivity {
     private String categoria = "";
 
     // Para compartir
-    public static final String PRIMERA_OPTION = "DISPONIBLE";
-    public static final String SEGUNDA_OPTION = "OCUPADO";
+    public static final String PRIMERA_OPTION = "Disponible";
+    public static final String SEGUNDA_OPTION = "Ocupado";
     public static final String TERCERA_OPTION = "PFC";
 
     @Override

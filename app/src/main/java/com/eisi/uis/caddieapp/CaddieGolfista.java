@@ -69,7 +69,7 @@ public class CaddieGolfista extends AppCompatActivity {
                 String apellidos = textViewApellidos.getText().toString();
                 String estado = textViewEstado.getText().toString();
 
-                if (estado.equals("DISPONIBLE")) {
+                if (estado.equals("Disponible")) {
                     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
                     _PojoReserva pojoReserva = new _PojoReserva();
                     pojoReserva.setCaddie(caddieID);
