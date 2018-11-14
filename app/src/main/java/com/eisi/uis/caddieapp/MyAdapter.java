@@ -42,6 +42,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return names.size();
     }
 
+    //Clase ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // Elementos UI a rellenar
         public TextView textViewName;

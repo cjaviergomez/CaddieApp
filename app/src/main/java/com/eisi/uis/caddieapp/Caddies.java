@@ -3,6 +3,9 @@ package com.eisi.uis.caddieapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,9 +33,13 @@ public class Caddies extends AppCompatActivity {
     private ArrayList<String> caddiesNames;
     private ArrayList<String> caddiesEstados;
     private List<String> caddiesNames_List;
-    private ListView lv;
+
+    private RecyclerView mRecyclerView;
+    // Puede ser declarado como 'RecyclerView.Adapter' o como nuetra clase adaptador 'MyAdapter'
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
     private String fromView;
-    private Myadapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +47,15 @@ public class Caddies extends AppCompatActivity {
         setContentView(R.layout.activity_caddies);
 
         // Instanciamos los elementos de la UI con sus referencias.
-        this.lv = (ListView) findViewById(R.id.listViewCaddies);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mLayoutManager = new LinearLayoutManager(this);
+
         this.caddiesIDs = new ArrayList<>();
         this.caddiesNames = new ArrayList<>();
         this.caddiesEstados = new ArrayList<>();
 
         //Activar el context menu
-        registerForContextMenu(lv);
+        registerForContextMenu(mRecyclerView);
 
         // Tomar los datos del Intent.
         Bundle bundle = getIntent().getExtras();
@@ -59,24 +68,6 @@ public class Caddies extends AppCompatActivity {
             Toast.makeText(Caddies.this, "It's empty.", Toast.LENGTH_SHORT).show();
         }
 
-        //Se da cuando se le haga un click a un item de nuestro listView
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String selectionID = Caddies.this.caddiesIDs.get(position);
-                Intent intent = new Intent(); // Me toca crear el new Intent(), si no me da error la línea de putExtra
-
-                if (Caddies.this.fromView.equals("CaddieMaster")) {
-                    intent = new Intent(Caddies.this, CaddieCaddieMaster.class);
-                } else if (Caddies.this.fromView.equals("Golfista")) {
-                    intent = new Intent(Caddies.this, CaddieGolfista.class);
-                }
-
-                intent.putExtra("caddieID", selectionID);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -121,20 +112,35 @@ public class Caddies extends AppCompatActivity {
                             //Lista con los datos a mostrar.
                             caddiesNames_List = new ArrayList<String>(caddiesNames);
 
-                            /*//Adaptador, la forma visual en que mostraremos nuestros datos.
-                            final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
-                                    (Caddies.this, android.R.layout.simple_list_item_1, caddiesNames_List);
-
-                            //Enlazamos el adaptador con nuestro List View
-                            lv.setAdapter(arrayAdapter);*/
-
                             //Enlazamos con nuestro adaptador personalizado
-                            myAdapter = new Myadapter(Caddies.this, R.layout.list_caddies, caddiesNames_List);
+                            // Implementamos nuestro OnItemClickListener propio, sobreescribiendo el método que nosotros
+                            // definimos en el adaptador, y recibiendo los parámetros que necesitamos
+                            mAdapter = new MyAdapter(caddiesNames_List, R.layout.list_caddies, new MyAdapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(String name, int position) {
+                                    String selectionID = Caddies.this.caddiesIDs.get(position);
+                                    Intent intent = new Intent(); // Me toca crear el new Intent(), si no me da error la línea de putExtra
 
-                            //Enlazamos el adaptador personalizado con nuestro List View
-                            lv.setAdapter(myAdapter);
+                                    if (Caddies.this.fromView.equals("CaddieMaster")) {
+                                        intent = new Intent(Caddies.this, CaddieCaddieMaster.class);
+                                    } else if (Caddies.this.fromView.equals("Golfista")) {
+                                        intent = new Intent(Caddies.this, CaddieGolfista.class);
+                                    }
 
-                            myAdapter.notifyDataSetChanged();
+                                    intent.putExtra("caddieID", selectionID);
+                                    startActivity(intent);
+
+                                }
+                            });
+
+                            // Lo usamos en caso de que sepamos que el layout no va a cambiar de tamaño, mejorando la performance
+                            mRecyclerView.setHasFixedSize(true);
+                            // Añade un efecto por defecto, si le pasamos null lo desactivamos por completo
+                            mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+                            // Enlazamos el layout manager y adaptor directamente al recycler view
+                            mRecyclerView.setLayoutManager(mLayoutManager);
+                            mRecyclerView.setAdapter(mAdapter);
 
                         }
 
@@ -185,7 +191,7 @@ public class Caddies extends AppCompatActivity {
                 dbRef.child("caddies/" + caddieID).removeValue();
 
                 // Notificamos al adaptador del cambio producido
-                myAdapter.notifyDataSetChanged();
+                mAdapter.notifyDataSetChanged();
 
                 //Revisamos si con el cambio la base de datos quedó vacia.
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
