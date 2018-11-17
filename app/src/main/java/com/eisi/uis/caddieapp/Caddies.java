@@ -27,12 +27,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
+
 public class Caddies extends AppCompatActivity {
 
     private ArrayList<String> caddiesIDs;
     private ArrayList<String> caddiesNames;
     private ArrayList<String> caddiesEstados;
     private List<String> caddiesNames_List;
+    private List<String> caddiesfotos;
 
     private RecyclerView mRecyclerView;
     // Puede ser declarado como 'RecyclerView.Adapter' o como nuetra clase adaptador 'MyAdapter'
@@ -52,10 +55,11 @@ public class Caddies extends AppCompatActivity {
 
         this.caddiesIDs = new ArrayList<>();
         this.caddiesNames = new ArrayList<>();
+        this.caddiesfotos = new ArrayList<>();
         this.caddiesEstados = new ArrayList<>();
 
         //Activar el context menu
-        registerForContextMenu(mRecyclerView);
+        //openContextMenu(mRecyclerView);
 
         // Tomar los datos del Intent.
         Bundle bundle = getIntent().getExtras();
@@ -77,6 +81,8 @@ public class Caddies extends AppCompatActivity {
         this.caddiesIDs.clear();
         this.caddiesNames.clear();
         this.caddiesEstados.clear();
+        this.caddiesfotos.clear();
+
 
         final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
 
@@ -102,11 +108,14 @@ public class Caddies extends AppCompatActivity {
                                 String caddieNombres   = (String) singleCaddie.get("nombres");
                                 String caddieApellidos = (String) singleCaddie.get("apellidos");
                                 String caddieEstado    = (String) singleCaddie.get("estado");
+                                String caddiefoto      = (String) singleCaddie.get("foto");
+
 
                                 //Almacemos los datos en un array.
                                 caddiesIDs.add(caddieID);
                                 caddiesNames.add(caddieNombres + " " + caddieApellidos);
                                 caddiesEstados.add(caddieEstado);
+                                caddiesfotos.add(caddiefoto);
                             }
 
                             //Lista con los datos a mostrar.
@@ -115,7 +124,7 @@ public class Caddies extends AppCompatActivity {
                             //Enlazamos con nuestro adaptador personalizado
                             // Implementamos nuestro OnItemClickListener propio, sobreescribiendo el método que nosotros
                             // definimos en el adaptador, y recibiendo los parámetros que necesitamos
-                            mAdapter = new MyAdapter(caddiesNames_List, R.layout.list_caddies, new MyAdapter.OnItemClickListener() {
+                            mAdapter = new MyAdapter(caddiesNames_List, caddiesfotos, R.layout.list_caddies, new MyAdapter.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(String name, int position) {
                                     String selectionID = Caddies.this.caddiesIDs.get(position);
@@ -158,7 +167,7 @@ public class Caddies extends AppCompatActivity {
             }
         });
     }
-
+/**
     // Inflamos el layout del context menu
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -191,7 +200,7 @@ public class Caddies extends AppCompatActivity {
                 dbRef.child("caddies/" + caddieID).removeValue();
 
                 // Notificamos al adaptador del cambio producido
-                mAdapter.notifyDataSetChanged();
+                mAdapter.notifyItemRemoved(info.position);
 
                 //Revisamos si con el cambio la base de datos quedó vacia.
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -258,6 +267,6 @@ public class Caddies extends AppCompatActivity {
         }
     }
 
-
+*/
 }
 
