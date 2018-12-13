@@ -1,6 +1,7 @@
 package com.eisi.uis.caddieapp;
 
 public class _PojoCaddie {
+    public String id;
     public String nombres;
     public String apellidos;
     public String alias;
@@ -11,6 +12,10 @@ public class _PojoCaddie {
     public String estado;
 
     public _PojoCaddie() {}
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public void setNombres(String nombres) {
         this.nombres = nombres;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/ver_caddie" android:title="@string/ver_informaci_n_caddie" />
+    <item android:id="@+id/ver_caddie" android:title="@string/informacion_caddie" />
     <item android:id="@+id/reservar_caddie" android:title="@string/Reservar"/>
 
 </menu>

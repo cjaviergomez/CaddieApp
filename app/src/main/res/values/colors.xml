@@ -9,6 +9,8 @@
     <color name="colorIcons">#FFFFFF</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorllamada">#64DD17</color>
+    <color name="colorAlert">#D32F2F</color>
+    <color name="defaultTextColor">#808080</color>
 </resources>
 
 

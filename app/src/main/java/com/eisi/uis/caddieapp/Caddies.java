@@ -6,15 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,25 +15,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import static java.lang.Integer.parseInt;
-
 public class Caddies extends AppCompatActivity {
 
-    private ArrayList<String> caddiesIDs;
-    private ArrayList<String> caddiesNames;
-    private ArrayList<String> caddiesEstados;
-    private List<String> caddiesNames_List;
-    private List<String> caddiesfotos;
+    private List<_PojoCaddie> listaCaddies;
 
     private RecyclerView mRecyclerView;
     // Puede ser declarado como 'RecyclerView.Adapter' o como nuetra clase adaptador 'MyAdapter'
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private String fromView;
+    public static String fromView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +40,8 @@ public class Caddies extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(this);
 
-        this.caddiesIDs = new ArrayList<>();
-        this.caddiesNames = new ArrayList<>();
-        this.caddiesfotos = new ArrayList<>();
-        this.caddiesEstados = new ArrayList<>();
+        this.listaCaddies  = new ArrayList<>();
 
-        //Activar el context menu
-        //openContextMenu(mRecyclerView);
 
         // Tomar los datos del Intent.
         Bundle bundle = getIntent().getExtras();
@@ -78,10 +60,7 @@ public class Caddies extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        this.caddiesIDs.clear();
-        this.caddiesNames.clear();
-        this.caddiesEstados.clear();
-        this.caddiesfotos.clear();
+        this.listaCaddies.clear();
 
 
         final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
@@ -104,30 +83,36 @@ public class Caddies extends AppCompatActivity {
                                 String caddieID = entry.getKey();
                                 Map singleCaddie = (Map) entry.getValue();
 
-                                //Extramos datos como ID, nombre, apellido y el estado.
-                                String caddieNombres   = (String) singleCaddie.get("nombres");
-                                String caddieApellidos = (String) singleCaddie.get("apellidos");
-                                String caddieEstado    = (String) singleCaddie.get("estado");
-                                String caddiefoto      = (String) singleCaddie.get("foto");
+                                _PojoCaddie caddie = new _PojoCaddie();
+                                caddie.setId(caddieID);
+                                caddie.setNombres((String) singleCaddie.get("nombres"));
+                                caddie.setApellidos((String) singleCaddie.get("apellidos"));
+                                caddie.setAlias((String) singleCaddie.get("alias"));
+                                caddie.setFoto((String) singleCaddie.get("foto"));
+                                caddie.setEdad((String) singleCaddie.get("edad"));
+                                caddie.setCelular((String) singleCaddie.get("celular"));
+                                caddie.setCategoria((String) singleCaddie.get("categoria"));
+                                caddie.setEstado((String) singleCaddie.get("estado"));
 
+                                //Almacemos los caddies en un array.
+                                listaCaddies.add(caddie);
 
-                                //Almacemos los datos en un array.
-                                caddiesIDs.add(caddieID);
-                                caddiesNames.add(caddieNombres + " " + caddieApellidos);
-                                caddiesEstados.add(caddieEstado);
-                                caddiesfotos.add(caddiefoto);
                             }
-
-                            //Lista con los datos a mostrar.
-                            caddiesNames_List = new ArrayList<String>(caddiesNames);
+                            //Ordenamos la lista de los caddies por nombre y apellido.
+                            Collections.sort(listaCaddies, new Comparator<_PojoCaddie>(){
+                                @Override
+                                public int compare(_PojoCaddie c1, _PojoCaddie c2) {
+                                    return (c1.nombres + c1.apellidos).compareTo(c2.nombres + c2.apellidos);
+                                }
+                            });
 
                             //Enlazamos con nuestro adaptador personalizado
                             // Implementamos nuestro OnItemClickListener propio, sobreescribiendo el método que nosotros
                             // definimos en el adaptador, y recibiendo los parámetros que necesitamos
-                            mAdapter = new MyAdapter(caddiesNames_List, caddiesfotos, R.layout.list_caddies, new MyAdapter.OnItemClickListener() {
+                            mAdapter = new MyAdapter(listaCaddies, R.layout.list_caddies,Caddies.this, fromView, new MyAdapter.OnItemClickListener() {
                                 @Override
-                                public void onItemClick(String name, int position) {
-                                    String selectionID = Caddies.this.caddiesIDs.get(position);
+                                public void onItemClick(_PojoCaddie caddie, int position) {
+                                    String selectionID = caddie.id;
                                     Intent intent = new Intent(); // Me toca crear el new Intent(), si no me da error la línea de putExtra
 
                                     if (Caddies.this.fromView.equals("CaddieMaster")) {
@@ -138,7 +123,6 @@ public class Caddies extends AppCompatActivity {
 
                                     intent.putExtra("caddieID", selectionID);
                                     startActivity(intent);
-
                                 }
                             });
 
@@ -150,6 +134,7 @@ public class Caddies extends AppCompatActivity {
                             // Enlazamos el layout manager y adaptor directamente al recycler view
                             mRecyclerView.setLayoutManager(mLayoutManager);
                             mRecyclerView.setAdapter(mAdapter);
+                            // No registramos para el menu contexto nada aquí, lo movemos al ViewHolder del adaptador
 
                         }
 
@@ -167,106 +152,5 @@ public class Caddies extends AppCompatActivity {
             }
         });
     }
-/**
-    // Inflamos el layout del context menu
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-
-        MenuInflater inflater = getMenuInflater();
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        menu.setHeaderTitle(this.caddiesNames_List.get(info.position));
-        if (Caddies.this.fromView.equals("CaddieMaster")){
-            inflater.inflate(R.menu.context_menu, menu);
-        }else{
-            inflater.inflate(R.menu.context_menu_golfista, menu);
-        }
-
-    }
-
-    // Manejamos eventos click en el context menu
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-        switch (item.getItemId()) {
-            case R.id.delete_caddie:
-                // Borramos caddie clickeado
-                this.caddiesNames_List.remove(info.position);
-                //Borramos de la DB
-                String caddieID = Caddies.this.caddiesIDs.get(info.position);
-                final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-                dbRef.child("caddies/" + caddieID).removeValue();
-
-                // Notificamos al adaptador del cambio producido
-                mAdapter.notifyItemRemoved(info.position);
-
-                //Revisamos si con el cambio la base de datos quedó vacia.
-                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (!dataSnapshot.hasChild("caddies")) {
-                            Toast.makeText(Caddies.this, "No existen caddies!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(Caddies.this, "Error DB", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-                return true;
-            case R.id.edit_caddie:
-                String IDcaddie = Caddies.this.caddiesIDs.get(info.position);
-                Intent intent = new Intent(Caddies.this, EditarCaddie.class);
-                intent.putExtra("caddieID", IDcaddie);
-                startActivity(intent);
-                return true;
-
-            case R.id.ver_caddie:
-                String selectionID = Caddies.this.caddiesIDs.get(info.position);
-                Intent intentvercaddie = new Intent(); // Me toca crear el new Intent(), si no me da error la línea de putExtra
-
-                if (Caddies.this.fromView.equals("CaddieMaster")) {
-                    intentvercaddie = new Intent(Caddies.this, CaddieCaddieMaster.class);
-                } else if (Caddies.this.fromView.equals("Golfista")) {
-                    intentvercaddie = new Intent(Caddies.this, CaddieGolfista.class);
-                }
-
-                intentvercaddie.putExtra("caddieID", selectionID);
-                startActivity(intentvercaddie);
-                return true;
-
-            case R.id.reservar_caddie:
-
-                String ID = Caddies.this.caddiesIDs.get(info.position);
-                String infoCaddie = this.caddiesNames_List.get(info.position);
-                String estado = Caddies.this.caddiesEstados.get(info.position);
-
-                if(estado.equals("Disponible")) {
-                    DatabaseReference DbRef = FirebaseDatabase.getInstance().getReference();
-                    _PojoReserva pojoReserva = new _PojoReserva();
-                    pojoReserva.setCaddie(ID);
-                    pojoReserva.setGolfista("Tiger Woods");
-                    pojoReserva.setEstado("Pendiente");
-                    pojoReserva.setInfocaddie(infoCaddie);
-
-                    DatabaseReference newReserva = DbRef.child("reservas").push();
-                    newReserva.setValue(pojoReserva);
-                    Toast.makeText(Caddies.this, "Reserva Creada", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(Caddies.this, "Caddie no disponible", Toast.LENGTH_SHORT).show();
-                }
-                return true;
-            default:
-                return super.onContextItemSelected(item);
-        }
-    }
-
-*/
 }
 
